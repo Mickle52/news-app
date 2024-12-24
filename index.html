@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>NewsApp</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="main.js" type="module" defer></script>
+</head>
+<body>
+<!--	<button type="button" id="button">GET NEWS</button>-->
+	<header class="header"></header>
+	
+	<main class="main">
+		<div class="main__inner">
+			<div class="search">
+				<input id="search__input" class="input" name="input__words" type="text" placeholder="Введите слово">
+				<div class="input-buttons">
+					<button id="add-word-button" class="button" type="button">ДОБАВИТЬ</button>
+					<button id="avoid-word-button" class="button" type="button">ИЗБЕГАТЬ</button>
+				</div>
+				
+				<div id="search__words" class="search__words">
+					<div class="search__words-add" id="added-words-container">
+					</div>
+					<div class="search__words-avoid" id="avoid-words-container">
+					</div>
+				</div>
+			</div>
+			<button type="button" id="testButton" class="testClass testClass2">test</button>
+		</div>
+	</main>
+
+	<footer class="footer"></footer>
+</body>
+</html>
