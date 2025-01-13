@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>NewsApp</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="./src/css/styles.css">
+	<script src="./src/js/main.js" type="module" defer></script>
+</head>
+<body>
+<!--	<button type="button" id="button">GET NEWS</button>-->
+	<header class="header">
+<!--		<p>test</p>-->
+	</header>
+	
+	<main class="main">
+		<div class="main__inner">
+			<div id="filters" class="filters">
+				<h2 class="filters__title title">ФИЛЬТРЫ ДЛЯ ПОИСКА</h2>
+				<div class="filters__settings">
+					<div class="filters__languages">
+						<select name="languages" id="languages-select" class="languages-select">
+							<option value="">Выберите язык</option>
+							<option value="ru">Русский</option>
+							<option value="en">Английский</option>
+							<option value="de">Немецкий</option>
+							<option value="fr">Французский</option>
+						</select>
+					</div>
+					<div class="filters__dates-from">
+<!--						<label for="dates-from">От</label>-->
+						<input type="date" name="from" id="dates-from" class="dates-from">
+					</div>
+					<div class="filters__dates-to">
+<!--						<label for="dates-to">До</label>-->
+						<input type="date" name="to" id="dates-to" class="dates-to">
+					</div>
+					<div class="filters__sorting">
+						<select name="sorting" id="sorting-select" class="sorting-select">
+							<option value="">Сортировать по</option>
+							<option value="publishedAt">Дате публикации</option>
+							<option value="popularity">Популярности</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="search" id="search">
+				<input id="search__input" class="input" name="input__words" type="text" placeholder="Введите слово">
+				
+				<div class="input-buttons">
+					<button id="add-word-button" class="button" type="button">ДОБАВИТЬ</button>
+					<button id="avoid-word-button" class="button" type="button">ИЗБЕГАТЬ</button>
+				</div>
+				
+				<div id="search__words" class="search__words">
+					<div class="search__words-add" id="added-words-container">
+					</div>
+					<div class="search__words-avoid" id="avoid-words-container">
+					</div>
+				</div>
+				<button type="button" id="testButton" class="testClass testClass2">ИСКАТЬ НОВОСТИ</button>
+			</div>
+			
+			<div class="news" id="news">
+				<article class="news__article" id="news__article">
+					<h3 class="news__article-title">Трамп назвал глупым одно решение Зеленского</h3>
+					<p class="news__article-description">Решение украинского лидера Владимира Зеленского наносить удары вглубь российской территории дальнобойным американским оружием является «глупым», которое создает на данный момент самую опасную ситуацию в мире. Об этом заявил избранный президент США Дональд Тра…</p>
+					<div class="news__article-info">
+						<span class="news__article-author">Автор: Дарья Устьянцева | <span class="news__article-source">Источник: "Lenta"</span></span>
+						<span class="news__article-publishedDate">Дата и время публикации: 2024-12-12 / 13:26</span>
+					</div>
+					<a href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/" class="news__article-url" target="_blank">ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a>
+				</article>
+				<article class="news2" id="news2">
+					<p>news2</p>
+				</article>
+			</div>
+		</div>
+	</main>
+
+	<footer class="footer"></footer>
+</body>
+</html>
