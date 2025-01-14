@@ -242,11 +242,7 @@ body {
 
     .news__article-description {
       width: 100%;
-      /*text-align: center;*/
-      /*text-wrap: balance;*/
       text-wrap: pretty;
-      /*word-break: break-all;*/
-      /*margin-inline: auto;*/
       padding: 0 0.3rem;
       background-color: rgba(219, 215, 210, 0.4);
       position: relative;
@@ -274,28 +270,49 @@ body {
 
     .news__article-info {
       display: grid;
-      justify-content: end;
+      place-content: end;
       > * {
         font-size: 0.8rem;
         opacity: 0.6;
       }
     }
 
-    .news__article-url {
-      color: black;
-      bottom: 0.5rem;
+    .news__article-buttons {
+      display: flex;
       position: absolute;
-      text-decoration: none;
-      background-color: rgba(242, 239, 220, 0.8);
-      border: 2px solid black;
-      font-size: 0.8rem;
-      padding-inline: 0.3rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      transition: var(--transition-settings);
-      &:hover {
-        border-radius: 1rem;
-        background-color: rgba(127, 255, 0, 0.7);
+      bottom: 0.5rem;
+      .news__article-url {
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        border: 2px solid black;
+        font-size: 0.8rem;
+        padding-inline: 0.3rem;
+        border-radius: 0.5rem 0 0 0.5rem;
+        font-weight: 600;
+        transition: var(--transition-settings);
+        &:hover {
+          border-radius: 1rem 0 0 1rem;
+          background-color: rgba(127, 255, 0, 0.7);
+        }
+      }
+
+      .news__article-button {
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        border: 2px solid black;
+        border-left: none;
+        font-size: 0.8rem;
+        padding-inline: 0.3rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-weight: 600;
+        transition: var(--transition-settings);
+        left: 35%;
+        &:hover {
+          border-radius: 0 1rem 1rem 0;
+          background-color: rgba(255, 215, 0, 0.7);
+        }
       }
     }
   }
