@@ -2,14 +2,12 @@ import "/src/css/styles.css";
 
 const originUrl = "https://newsapi.org/v2/everything?";
 const apiKey = "972a777f437d4e30950e5bfc5cea08d9";
-const testButton = document.getElementById("testButton");
+const searchNewsButton = document.getElementById("search-news-button");
 const addWordButton = document.getElementById("add-word-button");
 const avoidWordButton = document.getElementById("avoid-word-button");
 const searchWords = document.getElementById("search__words");
 const searchTest = document.getElementById("search");
 let targetSearchWordsArray = [];
-
-console.log(testButton.textContent);
 
 async function searchNewsBySortingFilters() {
   let targetUrl = originUrl;
@@ -18,7 +16,7 @@ async function searchNewsBySortingFilters() {
   const dateInputFrom = document.getElementById("dates-from");
   const dateInputTo = document.getElementById("dates-to");
   const sortingSelect = document.getElementById("sorting-select");
-  const newsContainer = document.getElementById("news");
+  const newsContainer = document.getElementById("found-news");
 
   if (targetSearchWordsArray.length === 0) {
     alertEmptyArray();
@@ -53,17 +51,25 @@ async function searchNewsBySortingFilters() {
   console.log(data.articles[0].author);
 
   data.articles.forEach((item) => {
-    let testPhrase = `
-    <article class="news__article" id="news__article">
+    const publishedDate = item.publishedAt
+      .replace("T", " / ")
+      .replace("Z", "")
+      .slice(0, -3);
+    const article = `
+    <article class="news__article">
 \t\t\t\t\t<h3 class="news__article-title">${item.title}</h3>
 \t\t\t\t\t<p class="news__article-description">${item.description}</p>
+\t\t\t\t\t<div class="news__article-buttons">
+\t\t\t\t\t\t<a href="${item.url}" class="news__article-url" target="_blank">ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a>
+\t\t\t\t\t\t<button type="button" class="news__article-button">В ИЗБРАННОЕ</button>
+\t\t\t\t\t</div>
 \t\t\t\t\t<div class="news__article-info">
 \t\t\t\t\t\t<span class="news__article-author">Автор: ${item.author} | <span class="news__article-source">Источник: ${item.source.name}</span></span>
-\t\t\t\t\t\t<span class="news__article-publishedDate">Дата и время публикации: ${item.publishedAt}</span>
-\t\t\t\t\t\t<a href="${item.url}" class="news__article-url" target="_blank">Читать на первоисточнике</a>
+\t\t\t\t\t\t<span class="news__article-publishedDate">Дата и время публикации: ${publishedDate}</span>
 \t\t\t\t\t</div>
-\t\t\t\t</article>`;
-    newsContainer.insertAdjacentHTML("beforeend", testPhrase);
+\t\t\t\t</article>
+    `;
+    newsContainer.insertAdjacentHTML("beforeend", article);
   });
 }
 
@@ -75,9 +81,6 @@ function alertEmptyArray() {
       <button type="button" id="delete-alert-window">ОК</button>
     </div>`;
   search.insertAdjacentHTML("afterbegin", phrase);
-  // setTimeout(() => {
-  //   input.nextElementSibling.remove();
-  // }, 2000);
 }
 
 searchTest.addEventListener("click", (event) => {
@@ -86,7 +89,7 @@ searchTest.addEventListener("click", (event) => {
   }
 });
 
-testButton.addEventListener("click", () => {
+searchNewsButton.addEventListener("click", () => {
   searchNewsBySortingFilters();
 });
 

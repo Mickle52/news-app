@@ -18,7 +18,10 @@
 <body>
 <!--	<button type="button" id="button">GET NEWS</button>-->
 	<header class="header">
-<!--		<p>test</p>-->
+		<div class="header__inner">
+			<p>test header</p>
+			<button id="favourites-button" type="button">ИЗБРАННОЕ</button>
+		</div>
 	</header>
 	
 	<main class="main">
@@ -67,11 +70,11 @@
 					<div class="search__words-avoid" id="avoid-words-container">
 					</div>
 				</div>
-				<button type="button" id="testButton" class="testClass testClass2">ИСКАТЬ НОВОСТИ</button>
+				<button type="button" id="search-news-button">ИСКАТЬ НОВОСТИ</button>
 			</div>
 			
-			<div class="news" id="news">
-				<article class="news__article" id="news__article">
+			<div class="news" id="found-news">
+				<article class="news__article">
 					<h3 class="news__article-title">Трамп назвал глупым одно решение Зеленского</h3>
 					<p class="news__article-description">Решение украинского лидера Владимира Зеленского наносить удары вглубь российской территории дальнобойным американским оружием является «глупым», которое создает на данный момент самую опасную ситуацию в мире. Об этом заявил избранный президент США Дональд Тра…</p>
 					<div class="news__article-buttons">
@@ -83,13 +86,34 @@
 						<span class="news__article-publishedDate">Дата и время публикации: 2024-12-12 / 13:26</span>
 					</div>
 				</article>
-				<article class="news2" id="news2">
-					<p>news2</p>
-				</article>
 			</div>
 		</div>
 	</main>
 
-	<footer class="footer"></footer>
+	<div class="favorites">
+		<div class="favorites__inner">
+			<div class="news" id="favorites-news">
+				<article class="news__article">
+					<h3 class="news__article-title">Трамп назвал глупым одно решение Зеленского</h3>
+					<p class="news__article-description">Решение украинского лидера Владимира Зеленского наносить удары вглубь российской территории дальнобойным американским оружием является «глупым», которое создает на данный момент самую опасную ситуацию в мире. Об этом заявил избранный президент США Дональд Тра…</p>
+					<div class="news__article-buttons">
+						<a href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/" class="news__article-url" target="_blank">ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a>
+						<button type="button" class="news__article-button">В ИЗБРАННОЕ</button>
+					</div>
+					<div class="news__article-info">
+						<span class="news__article-author">Автор: Дарья Устьянцева | <span class="news__article-source">Источник: "Lenta"</span></span>
+						<span class="news__article-publishedDate">Дата и время публикации: 2024-12-12 / 13:26</span>
+					</div>
+				</article>
+				<article class="news__article">
+					<p>test222</p>
+				</article>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+<!--		<p>test footer</p>-->
+	</footer>
 </body>
 </html>

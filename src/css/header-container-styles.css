@@ -1,0 +1,39 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 10vh;
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  border-radius: 0 0 10px 10px;
+  .header__inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 10px;
+    color: white;
+
+    > p {
+      margin: 0;
+    }
+
+    #favourites-button {
+      position: absolute;
+      right: 30px;
+      background-color: white;
+      border-radius: 0.5rem;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-settings);
+      &:hover {
+        background-color: orange;
+        border-radius: 0.7rem;
+        border: 3px solid white;
+        color: white;
+      }
+    }
+  }
+}

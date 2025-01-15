@@ -1,0 +1,5 @@
+.favorites__inner {
+  display: block;
+  /*display: none;*/
+  justify-items: center;
+}
