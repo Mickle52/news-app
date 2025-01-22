@@ -18,6 +18,7 @@
     />
 
     <link rel="stylesheet" href="./src/css/styles.css" />
+
     <script src="./src/js/main.js" type="module" defer></script>
   </head>
   <body>
@@ -25,15 +26,18 @@
     <header class="header">
       <div class="header__inner">
         <p>test header</p>
-        <button id="favorites-button" type="button">ИЗБРАННОЕ</button>
+        <button id="favorites-button" type="button">ИЗБРАННОЕ <span class="favorites-count">0</span></button>
       </div>
     </header>
 
     <main class="main" id="main">
-      <div class="main__inner">
+	    <div class="main__welcome">
+		    <span class="welcome-inner" id="welcome-inner"><span class="welcome-description" id="welcome-description"></span><span id="inner-stick">|</span></span>
+	    </div>
+      <div class="main__inner" id="main__inner">
         <div id="filters" class="filters">
           <h2 class="filters__title title">ФИЛЬТРЫ ДЛЯ ПОИСКА</h2>
-          <div class="filters__settings">
+          <div class="filters__settings" id="filters-settings">
             <div class="filters__languages">
               <select
                 name="languages"
@@ -48,17 +52,24 @@
               </select>
             </div>
             <div class="filters__dates-from">
-              <!--						<label for="dates-from">От</label>-->
               <input
-                type="date"
-                name="from"
+                type="text"
                 id="dates-from"
                 class="dates-from"
+                placeholder="Дата публикации: от"
+                onfocus="(this.type='date')"
+                onblur="if(this.value === ''){this.type='text'}"
               />
             </div>
             <div class="filters__dates-to">
-              <!--						<label for="dates-to">До</label>-->
-              <input type="date" name="to" id="dates-to" class="dates-to" />
+              <input
+                type="text"
+                id="dates-to"
+                class="dates-to"
+                placeholder="Дата публикации: до"
+                onfocus="(this.type='date')"
+                onblur="if(this.value === ''){this.type='text'}"
+              />
             </div>
             <div class="filters__sorting">
               <select name="sorting" id="sorting-select" class="sorting-select">
@@ -73,93 +84,95 @@
         <div class="search" id="search">
           <input
             id="search__input"
-            class="input"
-            name="input__words"
+            class="search__input"
             type="text"
             placeholder="Введите слово / фразу"
           />
 
-          <div class="input-buttons">
-            <button id="add-word-button" class="button" type="button">
-              ДОБАВИТЬ СЛОВО
-            </button>
-            <button id="avoid-word-button" class="button" type="button">
-              ИЗБЕГАТЬ СЛОВО
-            </button>
+          <div class="search__words-buttons">
+            <button id="add-word-button" type="button">ДОБАВИТЬ СЛОВО</button>
+            <button id="avoid-word-button" type="button">ИЗБЕГАТЬ СЛОВО</button>
           </div>
 
-          <div id="search__words" class="search__words">
-            <div class="search__words-add" id="added-words-container"></div>
-            <div class="search__words-avoid" id="avoid-words-container"></div>
+          <div id="search__words-containers" class="search__words-containers">
+            <div id="added-words-container"></div>
+            <div id="avoid-words-container"></div>
           </div>
           <button type="button" id="search-news-button">ИСКАТЬ НОВОСТИ</button>
         </div>
 
-        <div class="news" id="found-news">
-	        
-<!--	        <article class="news__article">-->
-<!--		        <h3 class="news__article-title">-->
-<!--			        Трамп назвал глупым одно решение Зеленского-->
-<!--		        </h3>-->
-<!--		        <p class="news__article-description">-->
-<!--			        Решение украинского лидера Владимира Зеленского наносить удары-->
-<!--			        вглубь российской территории дальнобойным американским оружием-->
-<!--			        является «глупым», которое создает на данный момент самую опасную-->
-<!--			        ситуацию в мире. Об этом заявил избранный президент США Дональд-->
-<!--			        Тра…-->
-<!--		        </p>-->
-<!--		        <div class="news__article-buttons">-->
-<!--			        <a-->
-<!--				        href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/"-->
-<!--				        class="news__article-url"-->
-<!--				        target="_blank"-->
-<!--			        >ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a-->
-<!--			        >-->
-<!--			        <button type="button" class="news__article-button">-->
-<!--				        В ИЗБРАННОЕ-->
-<!--			        </button>-->
-<!--		        </div>-->
-<!--		        <div class="news__article-info">-->
-<!--              <span class="news__article-author"-->
-<!--              >Автор: Дарья Устьянцева |-->
-<!--                <span class="news__article-source"-->
-<!--                >Источник: "Lenta"</span-->
-<!--                ></span-->
-<!--              >-->
-<!--			        <span class="news__article-publishedDate"-->
-<!--			        >Дата и время публикации: 2024-12-12 / 13:26</span-->
-<!--			        >-->
-<!--		        </div>-->
-<!--	        </article>-->
-<!--	        <article>-->
-<!--		        <p>test found</p>-->
-<!--	        </article>-->
-	        
+        <div class="news" id="founded-news">
+          <article class="article">
+            <h3 class="article__title">
+              Трамп назвал глупым одно решение Зеленского
+            </h3>
+            <p class="article__description">
+              Решение украинского лидера Владимира Зеленского наносить удары
+              вглубь российской территории дальнобойным американским оружием
+              является «глупым», которое создает на данный момент самую опасную
+              ситуацию в мире. Об этом заявил избранный президент США Дональд
+              Тра…
+            </p>
+            <div class="article__buttons">
+              <a
+                href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/"
+                class="article-url"
+                target="_blank"
+                >ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a
+              >
+              <button type="button" class="article-button">В ИЗБРАННОЕ</button>
+            </div>
+            <div class="article__info">
+              <span class="article-author"
+                >Автор: Дарья Устьянцева |
+                <span class="article-source">Источник: "Lenta"</span></span
+              >
+              <span class="article-publishedDate"
+                >Дата и время публикации: 2024-12-12 / 13:26</span
+              >
+            </div>
+          </article>
         </div>
       </div>
-    </main>
-    
-    <div id="found-news-status">
-	    <img src="./public/images/svg/main-starter.svg" alt=""
-	         id="found-news-status-image"
-	         width="400" height="400"
-	         loading="lazy"/>
-	    <p id="found-news-status-description">ИЩИТЕ НОВОСТИ ПО КЛЮЧЕВЫМ СЛОВАМ / ФРАЗАМ И СОРТИРУЙТЕ ИХ ПО РАЗЛИЧНЫМ ПАРАМЕТРАМ</p>
-    </div>
-    
-    <div class="favorites">
-	    <div class="favorites__status" id="favorites__status">
-			    <img src="./public/images/svg/favorites-container.svg" alt=""
-			         id="favorites__status-image"
-			         width="400" height="400"
-			         loading="lazy"/>
-			    <p class="favorites__status-description">СОХРАНЯЙТЕ НАЙДЕННЫЕ НОВОСТИ В ИЗБРАННОЕ С ПОМОЩЬЮ КНОПКИ "В ИЗБРАННОЕ"
-			    </p>
+	    
+	    <div id="founded-news-status">
+		    <img
+			    src="./public/images/svg/main-starter.svg"
+			    alt=""
+			    id="founded-news-status-image"
+			    width="400"
+			    height="400"
+			    loading="lazy"
+		    />
+		    <p id="founded-news-status-description">
+			    ИЩИТЕ НОВОСТИ ПО КЛЮЧЕВЫМ СЛОВАМ / ФРАЗАМ И СОРТИРУЙТЕ ИХ ПО РАЗЛИЧНЫМ
+			    ПАРАМЕТРАМ
+		    </p>
 	    </div>
-      <div class="favorites__inner">
-        <div class="news" id="favorites-news"></div>
-      </div>
-    </div>
+	    
+	    <div class="favorites">
+		    <div class="favorites__status" id="favorites__status">
+			    <img
+				    src="./public/images/svg/favorites-container.svg"
+				    alt=""
+				    id="favorites__status-image"
+				    width="400"
+				    height="400"
+				    loading="lazy"
+			    />
+			    <p class="favorites__status-description">
+				    СОХРАНЯЙТЕ НАЙДЕННЫЕ НОВОСТИ В ИЗБРАННОЕ С ПОМОЩЬЮ КНОПКИ "В
+				    ИЗБРАННОЕ"
+			    </p>
+		    </div>
+		    
+		    <div class="favorites__inner">
+			    <div class="news" id="favorites-news"></div>
+		    </div>
+	    </div>
+    </main>
+
+    
 
     <footer class="footer">
       <!--		<p>test footer</p>-->

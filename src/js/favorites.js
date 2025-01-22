@@ -1,11 +1,11 @@
 export const testFunc = () => {
-  const foundNewsContainer = document.getElementById("found-news");
+  const foundNewsContainer = document.getElementById("founded-news");
   const favNewsContainer = document.getElementById("favorites-news");
   const favHeadBtn = document.getElementById("favorites-button");
-  const mainContainer = document.getElementById("main");
+  const mainContainer = document.getElementById("main__inner");
   const searchTest = document.getElementById("search");
   const favoritesStatus = document.getElementById("favorites__status");
-  const foundNewsStatus = document.getElementById("found-news-status");
+  const foundNewsStatus = document.getElementById("founded-news-status");
 
   let favArr = [];
   // const testGet = JSON.parse(localStorage.getItem("testHTML"));
@@ -26,7 +26,7 @@ export const testFunc = () => {
   });
 
   foundNewsContainer.addEventListener("click", (event) => {
-    if (event.target.className === "news__article-button") {
+    if (event.target.className === "article-button") {
       const favArticle = event.target.parentElement.parentElement.outerHTML;
       favArr.push(favArticle);
       // const favArticle2 =

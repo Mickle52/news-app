@@ -1,16 +1,19 @@
 import "/src/css/styles.css";
 import { testFunc } from "./favorites.js";
+import { welcomeText } from "./welcomeTextFeature.js";
 
 testFunc();
+welcomeText();
 
 const originUrl = "https://newsapi.org/v2/everything?";
 const apiKey = "972a777f437d4e30950e5bfc5cea08d9";
 const searchNewsButton = document.getElementById("search-news-button");
 const addWordButton = document.getElementById("add-word-button");
 const avoidWordButton = document.getElementById("avoid-word-button");
-const searchWords = document.getElementById("search__words");
-
-const foundNewsContainer = document.getElementById("found-news");
+const searchWordsContainers = document.getElementById(
+  "search__words-containers",
+);
+const foundNewsContainer = document.getElementById("founded-news");
 let targetSearchWordsArray = [];
 
 async function searchNewsBySortingFilters() {
@@ -20,8 +23,8 @@ async function searchNewsBySortingFilters() {
   const dateInputFrom = document.getElementById("dates-from");
   const dateInputTo = document.getElementById("dates-to");
   const sortingSelect = document.getElementById("sorting-select");
-  const newsContainer = document.getElementById("found-news");
-  const foundNewsStatusMain = document.getElementById("found-news-status");
+  const newsContainer = document.getElementById("founded-news");
+  const foundNewsStatus = document.getElementById("founded-news-status");
 
   if (targetSearchWordsArray.length === 0) {
     alertEmptyArray();
@@ -54,32 +57,33 @@ async function searchNewsBySortingFilters() {
   console.log(response);
   console.log(data);
   // console.log(data.articles[0].author);
-  
+
   if (response.ok === true && data.articles.length > 0) {
-    foundNewsStatusMain.style.display = 'none'
+    foundNewsStatus.style.display = "none";
   }
   if (response.ok === true && data.articles.length === 0) {
-    foundNewsStatusMain.style.display = 'flex'
-    foundNewsStatusMain.children[0].src = './public/images/svg/nothingFound.svg'
-    foundNewsStatusMain.children[1].innerText = 'ПО ЗАДАННЫМ ПАРАМЕТРАМ НИЧЕГО НЕ НАЙДЕНО :('
+    foundNewsStatus.style.display = "flex";
+    foundNewsStatus.children[0].src = "./public/images/svg/nothingFound.svg";
+    foundNewsStatus.children[1].innerText =
+      "ПО ЗАДАННЫМ ПАРАМЕТРАМ НИЧЕГО НЕ НАЙДЕНО :(";
   }
-  
+
   data.articles.forEach((item) => {
     const publishedDate = item.publishedAt
       .replace("T", " / ")
       .replace("Z", "")
       .slice(0, -3);
     const article = `
-    <article class="news__article">
-     <h3 class="news__article-title">${item.title}</h3>
-     <p class="news__article-description">${item.description}</p>
-     <div class="news__article-buttons">
-      <a href="${item.url}" class="news__article-url" target="_blank">ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a>
-      <button type="button" class="news__article-button">В ИЗБРАННОЕ</button>
+    <article class="article">
+     <h3 class="article__title">${item.title}</h3>
+     <p class="article__description">${item.description}</p>
+     <div class="article__buttons">
+      <a href="${item.url}" class="article-url" target="_blank">ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a>
+      <button type="button" class="article-button">В ИЗБРАННОЕ</button>
      </div>
-     <div class="news__article-info">
-      <span class="news__article-author">Автор: ${item.author} | <span class="news__article-source">Источник: ${item.source.name}</span></span>
-      <span class="news__article-publishedDate">Дата и время публикации: ${publishedDate}</span>
+     <div class="article__info">
+      <span class="article-author">Автор: ${item.author} | <span class="article-source">Источник: ${item.source.name}</span></span>
+      <span class="article-publishedDate">Дата и время публикации: ${publishedDate}</span>
      </div>
     </article>
     `;
@@ -89,12 +93,24 @@ async function searchNewsBySortingFilters() {
 
 function alertEmptyArray() {
   const search = document.getElementById("search");
+  // const filtersSettings = document.getElementById('filters-settings')
+  const searchInput = document.getElementById("search__input");
+
   const phrase = `
-    <div id='alert-window'>
-      <p>ТЕСТ ОКНО</p>
-      <button type="button" id="delete-alert-window">ОК</button>
+    <div id='alert-window' class="alert-window">
+    <img src="./public/images/svg/arrow.svg" alt=""
+                class="alert-window__image"
+                width="150" height="150"
+                loading="lazy"/>
+      <p class="alert-window__description">Чтобы осуществить поиск, нужно добавить хотя бы одно ключевое слово/фразу</p>
+      <button type="button" id="delete-alert-window" class="alert-window__button">ОК</button>
     </div>`;
+
   search.insertAdjacentHTML("afterbegin", phrase);
+  // setTimeout(() => {
+  //   document.getElementById('alert-window').style.marginTop = '30px'
+  // }, 1000)
+  searchInput.focus();
 }
 
 searchNewsButton.addEventListener("click", () => {
@@ -144,7 +160,7 @@ avoidWordButton.addEventListener("click", () => {
   inputWord.value = "";
 });
 
-searchWords.addEventListener("click", (event) => {
+searchWordsContainers.addEventListener("click", (event) => {
   if (event.target.id === "delete-target-container-button") {
     const deletedIndex = targetSearchWordsArray.indexOf(
       event.target.previousElementSibling.textContent,
