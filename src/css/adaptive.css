@@ -13,6 +13,17 @@
 }
 
 @media (max-width: 1024px) {
+  #founded-news-status-image {
+    width: clamp(100px, 40%, 300px);
+    left: 3%;
+  }
+
+  .welcome {
+    position: absolute;
+    right: 43%;
+    width: 60%;
+  }
+
   .search__words-containers {
     > div {
       row-gap: 5px;
@@ -87,12 +98,39 @@
 }
 
 @media (max-width: 768px) {
-  #favorites-button {
-    font-size: 16px;
+  #founded-news-status-image {
+    width: clamp(100px, 45%, 300px);
+    left: -5px;
+  }
+
+  .welcome {
+    position: absolute;
+    right: 40%;
+    width: 65%;
+  }
+
+  .favorites-button {
+    font-size: 15px;
     font-weight: 600;
-    width: 110px;
-    padding-inline: 3px;
+    width: 133px;
+    padding-left: 3px;
+    padding-right: 25px;
     height: 30px;
+    right: 6px;
+  }
+
+  .favorites-count {
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 6px;
+    border-radius: 0.4rem
+  }
+
+  .back-btn {
+    padding-right: 0;
+    width: 95px;
   }
 
   .search__words-containers {
@@ -208,14 +246,44 @@
 }
 
 @media (max-width: 480px) {
-  #favorites-button {
-    font-size: 14px;
-    font-weight: 600;
+
+
+  #founded-news-status-image {
+    width: clamp(100px, 45%, 300px);
+    left: -35px;
+    top: 20px;
+  }
+
+  .welcome {
+    position: absolute;
+    right: 45%;
+    width: 69%;
+    line-height: 1;
+  }
+
+  .favorites-button {
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
     width: 100px;
-    padding-inline: 1px;
+    padding-left: 3px;
+    padding-right: 20px;
     padding-block: 0;
     height: 25px;
     right: 0.2rem;
+  }
+
+  .favorites-count {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    top: 30px;
+  }
+
+  .back-btn {
+    padding-right: 0;
+    width: 73px;
   }
 
   .filters__settings {
@@ -285,13 +353,13 @@
     background-color: transparent;
   }
 
-  #favorites-button:hover {
+  .favorites-button:hover {
     background-color: white;
     color: black;
     /*border-color: transparent;*/
   }
 
-  #favorites-button:active {
+  .favorites-button:active {
     background-color: orange;
   }
 }

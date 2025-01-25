@@ -50,26 +50,7 @@ body {
 }
 
 
-.main__welcome {
-  display: flex;
-  position: absolute;
-  margin-inline: auto;
-  max-width: 300px;
-  line-height: 1.2;
-}
 
-.welcome-description {
-  word-break: break-word;
-  text-wrap: balance;
-  white-space: pre-wrap;
-}
-
-#inner-stick {
-  display: inline;
-  color: black;
-  padding-left: 3px;
-  text-align: center;
-}
 
 /*input[type="date"]::-webkit-calendar-picker-indicator {*/
 /*  !*color: rgba(0, 0, 0, 0);*!*/

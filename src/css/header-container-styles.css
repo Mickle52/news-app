@@ -22,7 +22,7 @@
   }
 }
 
-#favorites-button {
+.favorites-button {
   display: flex;
   position: absolute;
   right: 10px;

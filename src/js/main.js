@@ -4,8 +4,8 @@ import { welcomeText } from "./welcomeTextFeature.js";
 import {setDate} from './features.js'
 
 testFunc();
-setDate()
-// welcomeText();
+setDate();
+welcomeText();
 
 const originUrl = "https://newsapi.org/v2/everything?";
 const apiKey = "972a777f437d4e30950e5bfc5cea08d9";

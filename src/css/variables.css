@@ -1,9 +1,6 @@
 :root {
-	--color-main: rgba(32,178,170, 1);
-	--color-secondary: rgba(132,178,170, 1);
-
-	--color-input: rgba(32,178,170, 0.7);
-	--color-bg-btn: rgba(32,178,170, 0.5);
+	--article-btn-hover-color: orange;
+	--article-btn-hover-border: 0 1rem 1rem 0;
 
 	--transition-settings: 100ms linear 100ms;
 }

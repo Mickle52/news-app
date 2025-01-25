@@ -26,15 +26,12 @@
     <header class="header">
       <div class="header__inner">
         <p>test header</p>
-        <button id="favorites-button" type="button">ИЗБРАННОЕ</button>
+        <button id="favorites-button" class="favorites-button" type="button">ИЗБРАННОЕ</button>
 	      <span class="favorites-count" id="favorites-count">10</span>
       </div>
     </header>
 
     <main class="main" id="main">
-	    <div class="main__welcome">
-		    <span class="welcome-inner" id="welcome-inner"><span class="welcome-description" id="welcome-description"></span><span id="inner-stick">|</span></span>
-	    </div>
       <div class="main__inner" id="main__inner">
         <div id="filters" class="filters">
           <h2 class="filters__title title">ФИЛЬТРЫ ДЛЯ ПОИСКА</h2>
@@ -139,17 +136,14 @@
 	    
 	    <div id="founded-news-status">
 		    <img
-			    src="./public/images/svg/sanboy.svg"
+			    src="./public/images/svg/micro.svg"
 			    alt=""
 			    id="founded-news-status-image"
-			    width="400"
-			    height="400"
 			    loading="lazy"
 		    />
-		    <p id="founded-news-status-description">
-			    ИЩИТЕ НОВОСТИ ПО КЛЮЧЕВЫМ СЛОВАМ / ФРАЗАМ И СОРТИРУЙТЕ ИХ ПО РАЗЛИЧНЫМ
-			    ПАРАМЕТРАМ
-		    </p>
+		    <div class="welcome">
+			    <span class="welcome-inner" id="welcome-inner"><span class="welcome-description" id="welcome-description"></span><span id="welcome-inner-stick"></span></span>
+		    </div>
 	    </div>
 	    
 	    <div class="favorites">

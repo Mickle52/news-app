@@ -7,9 +7,14 @@ export const testFunc = () => {
   const favoritesStatus = document.getElementById("favorites__status");
   const foundNewsStatus = document.getElementById("founded-news-status");
   const favoritesCount = document.getElementById('favorites-count')
-
+  const html = document.getElementsByTagName('HTML')
+  // console.log(html)
   let favArr = [];
-  // const testGet = JSON.parse(localStorage.getItem("testHTML"));
+  
+  if (localStorage.getItem('testHTML') === null) {
+    localStorage.setItem("testHTML", '[]')
+  }
+  
   function refreshFavoritesCount() {
     const testGet = JSON.parse(localStorage.getItem("testHTML"));
     favArr = structuredClone(testGet);
@@ -43,6 +48,9 @@ export const testFunc = () => {
       event.target.innerText = "В ИЗБРАННОМ";
       event.target.disabled = true;
       event.target.style.opacity = "0.4";
+      event.target.style.background = 'orange';
+      event.target.style.borderRadius = '0 1rem 1rem 0'
+      // event.target.style.setProperty('--article-btn-hover-border', 'none')
       refreshFavoritesCount()
       // favNewsContainer.insertAdjacentHTML("beforeend", favArticle);
     }
@@ -83,7 +91,8 @@ export const testFunc = () => {
       favNewsContainer.style.display = "block";
       mainContainer.style.display = "none";
       foundNewsStatus.style.display = "none";
-
+      favHeadBtn.classList.toggle('back-btn')
+      
       if (favArr.length === 0) {
         favoritesStatus.style.display = "flex";
       }
@@ -92,7 +101,8 @@ export const testFunc = () => {
       mainContainer.style.display = "block";
       favNewsContainer.style.display = "none";
       favoritesStatus.style.display = "none";
-
+      favHeadBtn.classList.toggle('back-btn')
+      
       if (foundNewsContainer.children.length === 0) {
         foundNewsStatus.style.display = "flex";
       }
