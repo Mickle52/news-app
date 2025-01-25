@@ -1,9 +1,11 @@
 import "/src/css/styles.css";
 import { testFunc } from "./favorites.js";
 import { welcomeText } from "./welcomeTextFeature.js";
+import {setDate} from './features.js'
 
 testFunc();
-welcomeText();
+setDate()
+// welcomeText();
 
 const originUrl = "https://newsapi.org/v2/everything?";
 const apiKey = "972a777f437d4e30950e5bfc5cea08d9";
@@ -14,6 +16,7 @@ const searchWordsContainers = document.getElementById(
   "search__words-containers",
 );
 const foundNewsContainer = document.getElementById("founded-news");
+const favoritesCount = document.getElementById('favorites-count')
 let targetSearchWordsArray = [];
 
 async function searchNewsBySortingFilters() {
@@ -54,8 +57,8 @@ async function searchNewsBySortingFilters() {
   targetUrl += `apiKey=${apiKey}`;
   const response = await fetch(targetUrl);
   const data = await response.json();
-  console.log(response);
-  console.log(data);
+  // console.log(response);
+  // console.log(data);
   // console.log(data.articles[0].author);
 
   if (response.ok === true && data.articles.length > 0) {
@@ -107,9 +110,6 @@ function alertEmptyArray() {
     </div>`;
 
   search.insertAdjacentHTML("afterbegin", phrase);
-  // setTimeout(() => {
-  //   document.getElementById('alert-window').style.marginTop = '30px'
-  // }, 1000)
   searchInput.focus();
 }
 
@@ -134,7 +134,7 @@ addWordButton.addEventListener("click", () => {
 
   targetSearchWordsArray.push(`+${inputWord.value}`);
   addedWordsContainer.insertAdjacentHTML("beforeend", targetWord);
-  console.log(targetSearchWordsArray);
+  // console.log(targetSearchWordsArray);
 
   inputWord.value = "";
 });

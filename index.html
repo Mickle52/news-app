@@ -26,7 +26,8 @@
     <header class="header">
       <div class="header__inner">
         <p>test header</p>
-        <button id="favorites-button" type="button">ИЗБРАННОЕ <span class="favorites-count">0</span></button>
+        <button id="favorites-button" type="button">ИЗБРАННОЕ</button>
+	      <span class="favorites-count" id="favorites-count">10</span>
       </div>
     </header>
 
@@ -70,6 +71,7 @@
                 onfocus="(this.type='date')"
                 onblur="if(this.value === ''){this.type='text'}"
               />
+	            <!--                min="2024-03-15" max="2024-03-31"-->
             </div>
             <div class="filters__sorting">
               <select name="sorting" id="sorting-select" class="sorting-select">
@@ -102,42 +104,42 @@
         </div>
 
         <div class="news" id="founded-news">
-          <article class="article">
-            <h3 class="article__title">
-              Трамп назвал глупым одно решение Зеленского
-            </h3>
-            <p class="article__description">
-              Решение украинского лидера Владимира Зеленского наносить удары
-              вглубь российской территории дальнобойным американским оружием
-              является «глупым», которое создает на данный момент самую опасную
-              ситуацию в мире. Об этом заявил избранный президент США Дональд
-              Тра…
-            </p>
-            <div class="article__buttons">
-              <a
-                href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/"
-                class="article-url"
-                target="_blank"
-                >ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a
-              >
-              <button type="button" class="article-button">В ИЗБРАННОЕ</button>
-            </div>
-            <div class="article__info">
-              <span class="article-author"
-                >Автор: Дарья Устьянцева |
-                <span class="article-source">Источник: "Lenta"</span></span
-              >
-              <span class="article-publishedDate"
-                >Дата и время публикации: 2024-12-12 / 13:26</span
-              >
-            </div>
-          </article>
+<!--          <article class="article">-->
+<!--            <h3 class="article__title">-->
+<!--              Трамп назвал глупым одно решение Зеленского-->
+<!--            </h3>-->
+<!--            <p class="article__description">-->
+<!--              Решение украинского лидера Владимира Зеленского наносить удары-->
+<!--              вглубь российской территории дальнобойным американским оружием-->
+<!--              является «глупым», которое создает на данный момент самую опасную-->
+<!--              ситуацию в мире. Об этом заявил избранный президент США Дональд-->
+<!--              Тра…-->
+<!--            </p>-->
+<!--            <div class="article__buttons">-->
+<!--              <a-->
+<!--                href="https://lenta.ru/news/2024/12/12/tramp-nazval-glupym-odno-reshenie-zelenskogo/"-->
+<!--                class="article-url"-->
+<!--                target="_blank"-->
+<!--                >ПЕРЕЙТИ НА ПЕРВОИСТОЧНИК</a-->
+<!--              >-->
+<!--              <button type="button" class="article-button">В ИЗБРАННОЕ</button>-->
+<!--            </div>-->
+<!--            <div class="article__info">-->
+<!--              <span class="article-author"-->
+<!--                >Автор: Дарья Устьянцева |-->
+<!--                <span class="article-source">Источник: "Lenta"</span></span-->
+<!--              >-->
+<!--              <span class="article-publishedDate"-->
+<!--                >Дата и время публикации: 2024-12-12 / 13:26</span-->
+<!--              >-->
+<!--            </div>-->
+<!--          </article>-->
         </div>
       </div>
 	    
 	    <div id="founded-news-status">
 		    <img
-			    src="./public/images/svg/main-starter.svg"
+			    src="./public/images/svg/sanboy.svg"
 			    alt=""
 			    id="founded-news-status-image"
 			    width="400"

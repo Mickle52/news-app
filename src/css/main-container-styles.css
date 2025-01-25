@@ -76,12 +76,14 @@
   .dates-from {
     border-radius: 0 0 0.5rem 0.5rem;
   }
+
 }
 
 .filters__dates-to {
   .dates-to {
     border-radius: 0 0 0.5rem 0.5rem;
   }
+
 }
 
 .search {
