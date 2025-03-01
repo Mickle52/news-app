@@ -1,11 +1,9 @@
-@import "reset.css";
-@import "variables.css";
-@import "main-container-styles.css";
-@import "header-container-styles.css";
-@import "favorites-container-styles.css";
-@import "adaptive.css";
-
-
+@import "./reset.css";
+@import "./variables.css";
+@import "./main-container-styles.css";
+@import "./header-container-styles.css";
+@import "./favorites-container-styles.css";
+@import "./adaptive.css";
 
 body {
   display: flex;
@@ -49,9 +47,6 @@ body {
   }
 }
 
-
-
-
 /*input[type="date"]::-webkit-calendar-picker-indicator {*/
 /*  !*color: rgba(0, 0, 0, 0);*!*/
 /*  display: block;*/
@@ -59,7 +54,6 @@ body {
 /*  height: 25px;*/
 /*  cursor: pointer;*/
 /*}*/
-
 
 /* input[type="date"] {*/
 /*   position: relative;*/
@@ -81,4 +75,3 @@ body {
 /*input[type="date"]::-webkit-clear-button {*/
 /*  z-index: 1;*/
 /*}*/
-
