@@ -6,32 +6,30 @@ export const testFunc = () => {
   const searchTest = document.getElementById("search");
   const favoritesStatus = document.getElementById("favorites__status");
   const foundNewsStatus = document.getElementById("founded-news-status");
-  const favoritesCount = document.getElementById('favorites-count')
-  const html = document.getElementsByTagName('HTML')
-  // console.log(html)
+  const favoritesCount = document.getElementById("favorites-count");
+  const html = document.getElementsByTagName("HTML");
   let favArr = [];
-  
-  if (localStorage.getItem('testHTML') === null) {
-    localStorage.setItem("testHTML", '[]')
+
+  if (localStorage.getItem("testHTML") === null) {
+    localStorage.setItem("testHTML", "[]");
   }
-  
+
   function refreshFavoritesCount() {
     const testGet = JSON.parse(localStorage.getItem("testHTML"));
     favArr = structuredClone(testGet);
-    favoritesCount.innerText = favArr.length
+    favoritesCount.innerText = favArr.length;
   }
-  
+
   function refreshDeletedIndex() {
     for (let i = 0; i < favNewsContainer.children.length; i++) {
       const deleteBtn = favNewsContainer.children[i].children[2].children[1];
       deleteBtn.innerText = "УДАЛИТЬ";
       deleteBtn.id = `delete-article-${i}`;
-      // console.log(deleteBtn);
     }
   }
-  
-  refreshFavoritesCount()
-  
+
+  refreshFavoritesCount();
+
   searchTest.addEventListener("click", (event) => {
     if (event.target.id === "delete-alert-window") {
       event.target.parentElement.remove();
@@ -42,17 +40,13 @@ export const testFunc = () => {
     if (event.target.className === "article-button") {
       const favArticle = event.target.parentElement.parentElement.outerHTML;
       favArr.push(favArticle);
-      
-      console.log(favArr);
+
       localStorage.setItem("testHTML", JSON.stringify(favArr));
       event.target.innerText = "В ИЗБРАННОМ";
       event.target.disabled = true;
       event.target.style.opacity = "0.4";
-      event.target.style.background = 'orange';
-      event.target.style.borderRadius = '0 1rem 1rem 0'
-      // event.target.style.setProperty('--article-btn-hover-border', 'none')
-      refreshFavoritesCount()
-      // favNewsContainer.insertAdjacentHTML("beforeend", favArticle);
+      event.target.style.background = "orange";
+      refreshFavoritesCount();
     }
   });
 
@@ -61,13 +55,13 @@ export const testFunc = () => {
       let deletedArticle = event.target.parentElement.parentElement;
       let targetID = event.target.id;
       let targetDeleteIndex = targetID.charAt(targetID.length - 1);
-      
+
       favArr.splice(targetDeleteIndex, 1);
       localStorage.setItem("testHTML", JSON.stringify(favArr));
       deletedArticle.remove();
       refreshDeletedIndex();
       refreshFavoritesCount();
-      
+
       if (favArr.length === 0) {
         favoritesStatus.style.display = "flex";
       }
@@ -83,7 +77,6 @@ export const testFunc = () => {
     favArr.forEach((item) => {
       favNewsContainer.insertAdjacentHTML("beforeend", item);
     });
-    console.log(favArr)
     refreshDeletedIndex();
 
     if (favHeadBtn.innerText === "ИЗБРАННОЕ") {
@@ -91,8 +84,8 @@ export const testFunc = () => {
       favNewsContainer.style.display = "block";
       mainContainer.style.display = "none";
       foundNewsStatus.style.display = "none";
-      favHeadBtn.classList.toggle('back-btn')
-      
+      favHeadBtn.classList.toggle("back-btn");
+
       if (favArr.length === 0) {
         favoritesStatus.style.display = "flex";
       }
@@ -101,8 +94,8 @@ export const testFunc = () => {
       mainContainer.style.display = "block";
       favNewsContainer.style.display = "none";
       favoritesStatus.style.display = "none";
-      favHeadBtn.classList.toggle('back-btn')
-      
+      favHeadBtn.classList.toggle("back-btn");
+
       if (foundNewsContainer.children.length === 0) {
         foundNewsStatus.style.display = "flex";
       }

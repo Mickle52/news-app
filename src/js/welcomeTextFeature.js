@@ -7,7 +7,7 @@ export function welcomeText() {
   const palka = document.getElementById("welcome-inner-stick");
 
   for (let each of testMessage) {
-    interval += Math.floor(Math.random() * 80);
+    interval += Math.floor(Math.random() * 100);
 
     const testout = setTimeout(func1, interval);
 
@@ -25,10 +25,9 @@ export function welcomeText() {
     palka.style.background = "black";
 
     if (welcomeDesc.innerText.length === message.length) {
-      console.log("123");
-	    await waitFor(3000)
+      await waitFor(3000);
       clearInterval(testint);
-	    palka.style.background = "transparent";
+      palka.style.background = "transparent";
     }
   }
 

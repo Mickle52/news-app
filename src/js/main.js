@@ -1,7 +1,7 @@
 import "/src/css/styles.css";
 import { testFunc } from "./favorites.js";
 import { welcomeText } from "./welcomeTextFeature.js";
-import {setDate} from './features.js'
+import { setDate } from "./features.js";
 
 testFunc();
 setDate();
@@ -16,7 +16,7 @@ const searchWordsContainers = document.getElementById(
   "search__words-containers",
 );
 const foundNewsContainer = document.getElementById("founded-news");
-const favoritesCount = document.getElementById('favorites-count')
+const favoritesCount = document.getElementById("favorites-count");
 let targetSearchWordsArray = [];
 
 async function searchNewsBySortingFilters() {
@@ -57,9 +57,6 @@ async function searchNewsBySortingFilters() {
   targetUrl += `apiKey=${apiKey}`;
   const response = await fetch(targetUrl);
   const data = await response.json();
-  // console.log(response);
-  // console.log(data);
-  // console.log(data.articles[0].author);
 
   if (response.ok === true && data.articles.length > 0) {
     foundNewsStatus.style.display = "none";
@@ -134,7 +131,6 @@ addWordButton.addEventListener("click", () => {
 
   targetSearchWordsArray.push(`+${inputWord.value}`);
   addedWordsContainer.insertAdjacentHTML("beforeend", targetWord);
-  // console.log(targetSearchWordsArray);
 
   inputWord.value = "";
 });
@@ -156,7 +152,6 @@ avoidWordButton.addEventListener("click", () => {
 
   targetSearchWordsArray.push(`-${inputWord.value}`);
   avoidWordsContainer.insertAdjacentHTML("beforeend", targetWord);
-  console.log(targetSearchWordsArray);
   inputWord.value = "";
 });
 
@@ -166,7 +161,6 @@ searchWordsContainers.addEventListener("click", (event) => {
       event.target.previousElementSibling.textContent,
     );
     targetSearchWordsArray.splice(deletedIndex, 1);
-    console.log(targetSearchWordsArray);
     event.target.parentElement.remove();
   }
 });
